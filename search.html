@@ -37,7 +37,7 @@
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="index.html">Home</a>
+    <a class="navbar-brand" href="index.html">GameAppProject</a>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
@@ -57,36 +57,28 @@
     <h2>Search</h2>
     <div class="row">
         <div class="col">
-            <form>
+            <form id="search">
                 <div class="form-group row">
-                    <label for="example-search-input" class="col-1 col-form-label">Name</label>
+                    <label for="gameName" class="col-1 col-form-label">Name</label>
                     <div class="col-2">
-                        <input class="form-control" type="search" value="search" id="example-search-input">
+                        <input class="form-control" type="search" id="gameName" required>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-2">
-                        <select class="custom-select">
-                            <option selected>All genres</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div>
                     <div class="col">
-                        <select class="custom-select">
-                            <option selected>All platforms</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
+                        <select class="custom-select" id="platforms"></select>
                     </div>
                 </div>
             </form>
-            <button type="submit" class="btn btn-primary" id="clickButton">search</button>
+            <button type="submit" class="btn btn-primary" id="searchButton" onclick="doSearch()">search</button>
+
         </div>
     </div>
-
+<div class="row">
+    <div class="col">
+        <ul id="searchResults"></ul>
+    </div>
+</div>
 </div>
 
 <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>

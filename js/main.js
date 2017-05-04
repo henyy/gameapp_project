@@ -95,3 +95,49 @@ function onPs4Data(xml) {
 
     });
 }
+
+function getPlatforms() {
+    console.log('getPlatforms');
+    $.ajax({
+        'url': 'http://thegamesdb.net/api/GetPlatformsList.php',
+        'dataType': 'xml',
+        'success': onGetPlatforms
+    });
+}
+
+function onGetPlatforms(xml) {
+
+    $(xml).find('Platform').each(function () {
+        //console.log('ID: ' + $(this).find('id').text());
+        //console.log('Name: ' + $(this).find('name').text());
+        //console.log('---------------------------------------------');
+
+        var id = $(this).find('id').text();
+        var name = $(this).find('name').text();
+        $('#platforms').append('<option id="' + id + '">' + name + '</option>');
+    });
+}
+
+function doSearch(name, platform) {
+    console.log('doSearch');
+    $.ajax({
+        //'url': 'http://thegamesdb.net/api/GetGamesList.php?name=' + name + '&platform=' + platform,
+        'url': 'http://thegamesdb.net/api/GetGamesList.php?name=mortal+kombat&platform=Sony+Playstation',
+        'dataType': 'xml',
+        'success': onSearchData
+    });
+}
+
+function onSearchData(xml) {
+    $('#searchResults').empty();
+    $(xml).find('Game').each(function () {
+            var name = $(this).find('GameTitle').text();
+            var platform = $(this).find('Platform').text();
+            //var name = $(this).find('#gameName').val();
+            //var platform = $(this).find('option:selected');
+            //doSearch(name, platform);
+            $('#searchResults').append('<li>' + name + ' - ' + platform + '</li>');
+    });
+}
+
+getPlatforms();
