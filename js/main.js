@@ -120,9 +120,11 @@ function onGetPlatforms(xml) {
 
 function doSearch(name, platform) {
     console.log('doSearch');
+    console.log(name);
+    console.log(platform);
     $.ajax({
-        //'url': 'http://thegamesdb.net/api/GetGamesList.php?name=' + name + '&platform=' + platform,
-        'url': 'http://thegamesdb.net/api/GetGamesList.php?name=mortal+kombat&platform=Sony+Playstation',
+        'url': 'http://thegamesdb.net/api/GetGamesList.php?name=' + name + '&platform=' + platform,
+        //'url': 'http://thegamesdb.net/api/GetGamesList.php?name=mortal+kombat&platform=Sony+Playstation',
         'dataType': 'xml',
         'success': onSearchData
     });
@@ -139,5 +141,11 @@ function onSearchData(xml) {
             $('#searchResults').append('<li>' + name + ' - ' + platform + '</li>');
     });
 }
+$('#searchButton').click(function(){
+   console.log('searchbutton');
+    var name = $('#gameName').val();
+    var platform = $('#platforms option:selected').text();
+    doSearch(name, platform);
 
+});
 getPlatforms();
