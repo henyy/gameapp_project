@@ -22,7 +22,7 @@ function onPs1Data(xml) {
         var gameImg = $(this).find('thumb').text();
         var game = $(this).find('GameTitle').text();
         var releaseDate = $(this).find('ReleaseDate').text();
-        $('#games').append('<li class="word-break">' + '<img src="http://thegamesdb.net/banners/_favcache/_boxart-view/' + gameImg +'"</img><br>' + game + ' - ' + releaseDate + '</li>');
+        $('#games').append('<li class="word-break">' + '<img src="http://thegamesdb.net/banners/_favcache/_boxart-view/' + gameImg + '"</img><br>' + game + ' - ' + releaseDate + '</li>');
 
     });
 }
@@ -45,7 +45,7 @@ function onPs2Data(xml) {
         var gameImg = $(this).find('thumb').text();
         var game = $(this).find('GameTitle').text();
         var releaseDate = $(this).find('ReleaseDate').text();
-        $('#games').append('<li class="word-break">' + '<img src="http://thegamesdb.net/banners/_favcache/_boxart-view/' + gameImg +'"</img><br>' + game + ' - ' + releaseDate + '</li>');
+        $('#games').append('<li class="word-break">' + '<img src="http://thegamesdb.net/banners/_favcache/_boxart-view/' + gameImg + '"</img><br>' + game + ' - ' + releaseDate + '</li>');
 
     });
 }
@@ -68,7 +68,7 @@ function onPs3Data(xml) {
         var gameImg = $(this).find('thumb').text();
         var game = $(this).find('GameTitle').text();
         var releaseDate = $(this).find('ReleaseDate').text();
-        $('#games').append('<li class="word-break">' + '<img src="http://thegamesdb.net/banners/_favcache/_boxart-view/' + gameImg +'"</img><br>' + game + ' - ' + releaseDate + '</li>');
+        $('#games').append('<li class="word-break">' + '<img src="http://thegamesdb.net/banners/_favcache/_boxart-view/' + gameImg + '"</img><br>' + game + ' - ' + releaseDate + '</li>');
 
     });
 }
@@ -91,7 +91,7 @@ function onPs4Data(xml) {
         var gameImg = $(this).find('thumb').text();
         var game = $(this).find('GameTitle').text();
         var releaseDate = $(this).find('ReleaseDate').text();
-        $('#games').append('<li class="word-break">' + '<img src="http://thegamesdb.net/banners/_favcache/_boxart-view/' + gameImg +'"</img><br>' + game + ' - ' + releaseDate + '</li>');
+        $('#games').append('<li class="word-break">' + '<img src="http://thegamesdb.net/banners/_favcache/_boxart-view/' + gameImg + '"</img><br>' + game + ' - ' + releaseDate + '</li>');
 
     });
 }
@@ -133,16 +133,16 @@ function doSearch(name, platform) {
 function onSearchData(xml) {
     $('#searchResults').empty();
     $(xml).find('Game').each(function () {
-            var name = $(this).find('GameTitle').text();
-            var platform = $(this).find('Platform').text();
-            //var name = $(this).find('#gameName').val();
-            //var platform = $(this).find('option:selected');
-            //doSearch(name, platform);
-            $('#searchResults').append('<li>' + name + ' - ' + platform + '</li>');
+        var name = $(this).find('GameTitle').text();
+        var platform = $(this).find('Platform').text();
+        //var name = $(this).find('#gameName').val();
+        //var platform = $(this).find('option:selected');
+        //doSearch(name, platform);
+        $('#searchResults').append('<li>' + name + ' - ' + platform + '</li>');
     });
 }
-$('#searchButton').click(function(){
-   console.log('searchbutton');
+$('#searchButton').click(function () {
+    console.log('searchbutton');
     var name = $('#gameName').val();
     var platform = $('#platforms option:selected').text();
     doSearch(name, platform);
